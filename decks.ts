@@ -1,4 +1,4 @@
-const baseDeck = {
+export const baseDeck = {
   playerCount: {
     1: {
       tier1: Array(4).fill("base", 0, 1).fill("unique", 1, 4),
@@ -23,7 +23,7 @@ const baseDeck = {
   },
 };
 
-const expeditionDeck = {
+export const expeditionDeck = {
   battle2: {
     playerCount: {
       1: {
@@ -98,3 +98,4 @@ const expeditionDeck = {
   },
 };
 
+console.log("works");
