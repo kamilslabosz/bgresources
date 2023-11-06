@@ -1,24 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [players, setPlayers] = useState(2);
+
+function onPlayerChange(e:React.ChangeEvent<HTMLInputElement>){
+  console.log(e.target.value);
+  setPlayers(parseInt(e.target.value))
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-header">Player Count</header>
+      <div onChange={onPlayerChange}>
+        <input
+          type="radio"
+          value={1}
+          name="players"
+          checked={players === 1}
+        ></input>
+        <input
+          type="radio"
+          value={2}
+          name="players"
+          checked={players === 2}
+        ></input>
+        <input
+          type="radio"
+          value={3}
+          name="players"
+          checked={players === 3}
+        ></input>
+        <input
+          type="radio"
+          value={4}
+          name="players"
+          checked={players === 4}
+        ></input>
+      </div>
     </div>
   );
 }

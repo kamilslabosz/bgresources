@@ -1,7 +1,12 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 function App() {
-    return (_jsx("div", { className: "App", children: _jsxs("header", { className: "App-header", children: [_jsx("img", { src: logo, className: "App-logo", alt: "logo" }), _jsxs("p", { children: ["Edit ", _jsx("code", { children: "src/App.tsx" }), " and save to reload."] }), _jsx("a", { className: "App-link", href: "https://reactjs.org", target: "_blank", rel: "noopener noreferrer", children: "Learn React" })] }) }));
+    var _a = useState(2), players = _a[0], setPlayers = _a[1];
+    function onPlayerChange(e) {
+        console.log(e.target.value);
+        setPlayers(parseInt(e.target.value));
+    }
+    return (_jsxs("div", { className: "App", children: [_jsx("header", { className: "App-header", children: "Player Count" }), _jsxs("div", { onChange: onPlayerChange, children: [_jsx("input", { type: "radio", value: 1, name: "players", checked: players === 1 }), _jsx("input", { type: "radio", value: 2, name: "players", checked: players === 2 }), _jsx("input", { type: "radio", value: 3, name: "players", checked: players === 3 }), _jsx("input", { type: "radio", value: 4, name: "players", checked: players === 4 })] })] }));
 }
 export default App;
