@@ -1,43 +1,35 @@
 import React, { useState } from "react";
 import "./App.css";
+import RadioBtn from "./components/RadioBtn";
 
 function App() {
   const [players, setPlayers] = useState(2);
+  const [battleNumber, setBattleNumber] = useState(1);
 
-function onPlayerChange(e:React.ChangeEvent<HTMLInputElement>){
-  console.log(e.target.value);
-  setPlayers(parseInt(e.target.value))
-}
+  function onPlayerChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setPlayers(parseInt(e.target.value));
+  }
+
+  function onBattleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setBattleNumber(parseInt(e.target.value));
+  }
 
   return (
     <div className="App">
-      <header className="App-header">Player Count</header>
-      <div onChange={onPlayerChange}>
-        <input
-          type="radio"
-          value={1}
-          name="players"
-          checked={players === 1}
-        ></input>
-        <input
-          type="radio"
-          value={2}
-          name="players"
-          checked={players === 2}
-        ></input>
-        <input
-          type="radio"
-          value={3}
-          name="players"
-          checked={players === 3}
-        ></input>
-        <input
-          type="radio"
-          value={4}
-          name="players"
-          checked={players === 4}
-        ></input>
-      </div>
+      <RadioBtn
+        options={[1, 2, 3, 4]}
+        defaultValue={2}
+        currentValue={players}
+        label="Player Count"
+        handler={onPlayerChange}
+      ></RadioBtn>
+      <RadioBtn
+        options={[1, 2, 3, 4]}
+        defaultValue={1}
+        currentValue={battleNumber}
+        label="Battle Number"
+        handler={onBattleChange}
+      ></RadioBtn>
     </div>
   );
 }
