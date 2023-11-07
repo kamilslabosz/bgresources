@@ -3,7 +3,7 @@ import * as React from "react";
 interface RadioData {
   options: string[] | number[];
   defaultValue: string | number;
-  currentValue: string | number;
+  btnState: string | number;
   label: string;
   handler: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
