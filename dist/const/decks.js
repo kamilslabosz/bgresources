@@ -32,7 +32,7 @@ export var baseDeck = {
     },
 };
 export var expeditionDeck = {
-    battle2: {
+    2: {
         playerCount: {
             1: {
                 tier1: __spreadArray([], baseDeck.playerCount[1].tier1, true).fill("Upgraded (Tier 1)", 0, 1),
@@ -56,7 +56,7 @@ export var expeditionDeck = {
             },
         },
     },
-    battle3: {
+    3: {
         playerCount: {
             1: {
                 tier1: __spreadArray([], baseDeck.playerCount[1].tier1, true).fill("Upgraded (Tier 1)", 0, 1),
@@ -80,7 +80,7 @@ export var expeditionDeck = {
             },
         },
     },
-    battle4: {
+    4: {
         playerCount: {
             1: {
                 tier1: __spreadArray([], baseDeck.playerCount[1].tier1, true).fill("Upgraded (Tier 1)", 0, 1),

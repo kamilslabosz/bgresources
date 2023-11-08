@@ -1,0 +1,25 @@
+.label {
+    font-weight: 400;
+}
+
+.bigBtn, .smallBtn {
+    display: block;
+    margin: 10px auto;
+    border: none;
+}
+
+.bigBtn {
+    background-color: #F4CE14;
+    width: 20vw;
+    height: 8vh;
+    font-size: 3vw;
+    color: #45474B;
+}
+
+.smallBtn {
+    background-color: #45474B;
+    width: 12vw;
+    height: 6vh;
+    font-size: 1.5vw;
+    color: #F4CE14;
+}

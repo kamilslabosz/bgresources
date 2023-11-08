@@ -1,4 +1,5 @@
 import * as React from "react";
+import classes from "./RadioBtn.module.css";
 
 interface RadioData {
   options: string[] | number[];
@@ -11,17 +12,21 @@ interface RadioData {
 function RadioBtn(props: RadioData) {
   return (
     <>
-      <header className="App-header">{props.label}</header>
+      <header className={classes.label}>{props.label}</header>
       <div onChange={props.handler}>
         {props.options.map((option) => {
           return (
-            <input
-              defaultChecked={option === props.defaultValue ? true : false}
-              key={option}
-              type="radio"
-              value={option}
-              name={props.label}
-            ></input>
+            <label className={classes.container}>
+              {option}
+              <input
+                defaultChecked={option === props.defaultValue ? true : false}
+                key={option}
+                type="radio"
+                value={option}
+                name={props.label}
+              ></input>
+              <span className={classes.checkmark}></span>
+            </label>
           );
         })}
       </div>

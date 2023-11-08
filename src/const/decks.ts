@@ -24,7 +24,7 @@ export const baseDeck = {
 };
 
 export const expeditionDeck = {
-  battle2: {
+  2: {
     playerCount: {
       1: {
         tier1: [...baseDeck.playerCount[1].tier1].fill("Upgraded (Tier 1)", 0, 1),
@@ -48,7 +48,7 @@ export const expeditionDeck = {
       },
     },
   },
-  battle3: {
+  3: {
     playerCount: {
       1: {
         tier1: [...baseDeck.playerCount[1].tier1].fill("Upgraded (Tier 1)", 0, 1),
@@ -72,7 +72,7 @@ export const expeditionDeck = {
       },
     },
   },
-  battle4: {
+  4: {
     playerCount: {
       1: {
         tier1: [...baseDeck.playerCount[1].tier1].fill("Upgraded (Tier 1)", 0, 1),
