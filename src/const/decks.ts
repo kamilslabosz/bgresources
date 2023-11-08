@@ -2,8 +2,8 @@ export const baseDeck = {
   playerCount: {
     1: {
       tier1: Array(4).fill("Base (Tier 1)", 0, 1).fill("Unique (Tier 1)", 1, 4),
-      tier2: Array(6).fill("Base", 0, 3).fill("Unique (Tier 2)", 3, 6),
-      tier3: Array(10).fill("Base", 0, 7).fill("Unique (Tier 3)", 7, 10),
+      tier2: Array(6).fill("Base (Tier 2)", 0, 3).fill("Unique (Tier 2)", 3, 6),
+      tier3: Array(10).fill("Base (Tier 3)", 0, 7).fill("Unique (Tier 3)", 7, 10),
     },
     2: {
       tier1: Array(6).fill("Base (Tier 1)", 0, 3).fill("Unique (Tier 1)", 3, 6),

@@ -13,7 +13,7 @@ import "./App.css";
 import RadioBtn from "./components/RadioBtn";
 import { baseDeck, expeditionDeck } from "./const/decks";
 function App() {
-    var _a = useState(1), players = _a[0], setPlayers = _a[1];
+    var _a = useState(2), players = _a[0], setPlayers = _a[1];
     var _b = useState("battle1"), battleNumber = _b[0], setBattleNumber = _b[1];
     var _c = useState(baseDeck.playerCount[2]), tempDeck = _c[0], setTempDeck = _c[1];
     var _d = useState([]), battleDeck = _d[0], setBattleDeck = _d[1];
@@ -58,8 +58,13 @@ function App() {
             newDeck = __spreadArray(__spreadArray([], newDeck, true), temp, true);
         }
         setBattleDeck(newDeck);
+        setCardIdx(0);
         setRenderCard(true);
     }
-    return (_jsxs("div", { className: "App", children: [_jsx(RadioBtn, { options: [1, 2, 3, 4], defaultValue: 2, btnState: players, label: "Player Count", handler: onPlayerChange }), _jsx(RadioBtn, { options: ["battle1", "battle2", "battle3", "battle4"], defaultValue: "battle1", btnState: battleNumber, label: "Expedition Battle Number", handler: onBattleChange }), _jsx("button", { onClick: startButtonHandler, children: renderCard ? "Generate new deck" : "Create a deck" }), renderCard && _jsx("h1", { children: battleDeck[cardIdx] })] }));
+    function handleCardChange(direction) {
+        var newIdx = cardIdx + direction;
+        setCardIdx(newIdx);
+    }
+    return (_jsxs("div", { className: "App", children: [_jsx(RadioBtn, { options: [1, 2, 3, 4], defaultValue: 2, btnState: players, label: "Player Count", handler: onPlayerChange }), _jsx(RadioBtn, { options: ["battle1", "battle2", "battle3", "battle4"], defaultValue: "battle1", btnState: battleNumber, label: "Expedition Battle Number", handler: onBattleChange }), _jsx("button", { onClick: startButtonHandler, children: renderCard ? "Generate new deck" : "Create a deck" }), renderCard && (_jsxs("div", { children: [_jsx("h1", { children: battleDeck[cardIdx] }), cardIdx < battleDeck.length ? (_jsx("button", { onClick: function () { return handleCardChange(1); }, children: "Next" })) : (_jsx("h1", { children: "no more cards" })), _jsx("hr", {}), cardIdx !== 0 && (_jsx("button", { onClick: function () { return handleCardChange(-1); }, children: "Previous" }))] }))] }));
 }
 export default App;

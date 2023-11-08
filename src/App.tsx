@@ -4,8 +4,8 @@ import RadioBtn from "./components/RadioBtn";
 import { baseDeck, expeditionDeck } from "./const/decks";
 
 function App() {
-  const [players, setPlayers] = useState(1);
-  const [battleNumber, setBattleNumber] = useState("battle1");
+  const [players, setPlayers] = useState<number>(2);
+  const [battleNumber, setBattleNumber] = useState<string>("battle1");
   const [tempDeck, setTempDeck] = useState(baseDeck.playerCount[2]);
   const [battleDeck, setBattleDeck] = useState<string[]>([]);
   const [renderCard, setRenderCard] = useState<boolean>(false);
@@ -53,7 +53,13 @@ function App() {
       newDeck = [...newDeck, ...temp];
     }
     setBattleDeck(newDeck);
-    setRenderCard(true)
+    setCardIdx(0);
+    setRenderCard(true);
+  }
+
+  function handleCardChange(direction: number) {
+    const newIdx = cardIdx + direction;
+    setCardIdx(newIdx);
   }
 
   return (
@@ -72,8 +78,23 @@ function App() {
         label="Expedition Battle Number"
         handler={onBattleChange}
       ></RadioBtn>
-      <button onClick={startButtonHandler}>{renderCard? "Generate new deck" : "Create a deck"}</button>
-      {renderCard && <h1>{battleDeck[cardIdx]}</h1>}
+      <button onClick={startButtonHandler}>
+        {renderCard ? "Generate new deck" : "Create a deck"}
+      </button>
+      {renderCard && (
+        <div>
+          <h1>{battleDeck[cardIdx]}</h1>
+          {cardIdx < battleDeck.length ? (
+            <button onClick={() => handleCardChange(1)}>Next</button>
+          ) : (
+            <h1>no more cards</h1>
+          )}
+          <hr/>
+          {cardIdx !== 0 && (
+            <button onClick={() => handleCardChange(-1)}>Previous</button>
+          )}
+        </div>
+      )}
     </div>
   );
 }
